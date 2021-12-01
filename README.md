@@ -15,10 +15,10 @@ LB, reverse-proxies, relational-BDs, non-relational-DBS_)
 - [DDI](https://www.amazon.com/gp/product/1449373321/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
 ## Examples
-- [Trip Advisor](./problems/TRIP-ADVISOR.md)
-- [online code sharing platform](./problems/CODE-SHARE.md)
-- [Instagram](./problems/INSTAGRAM.md)
 - [Facebook](./problems/FACEBOOK.md)
 - [Twitter](./problems/TWITTER.md)
+- [online code sharing platform](./problems/CODE-SHARE.md)
+- [Instagram](./problems/INSTAGRAM.md)
+- [Trip Advisor](./problems/TRIP-ADVISOR.md)
 - [google Docs](./problems/GOOGLE-DOCS.md)
 - [Netflix](./problems/NETFLIX.md)
