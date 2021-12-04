@@ -4,7 +4,7 @@ A set of examples on system design problems & most common SD questions.
 ## Table of Contents
 * [Prerequisite](#Prerequisite)
 * [Examples](#Examples)
-* [Refreshers & System Design Questions](#Refreshers-&-System Design Questions)
+* [Refreshers & System Design Questions](#Refreshers-&-System-Design-Questions)
 
 ## Prerequisite
 Knowledge in large-scale & distributed systems components.
