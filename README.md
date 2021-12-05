@@ -31,6 +31,28 @@ LB, reverse-proxies, relational-BDs, non-relational-DBS_)
 ## Refreshers & System Design Questions
 <br/>
 
+- Distributed system?
+
+A system consists of multiple computers that communicate and interact with each other to achieve a certain goal
+
+<br/>
+
+- Advantages of distributed computing?
+  - Zero latency
+  - Infinite bandwidth
+  - Secure network
+  - Transport cost is near zero
+  - One admin
+
+<br/>
+
+- Service discovery?
+
+A system that can help services find each other, and keep track of registered names, addresses and ports.
+e.g. Consul, Etcd, zoo-keeper etc...
+
+<br/>
+
 - Define UDP & give some common use cases?
 
 User datagram protocol runs over IP and used to establish low latency & loss tolerating connections between applications.
@@ -693,5 +715,419 @@ Is a web server that centralized internal services and provides a unified interf
 - Kafka components/concepts?
   - brokers (servers responsible for storing data)
   - records (a message or event that contains timestamp, key, value and metadata)
-  - topics (categories for messages can be thought of as tables in RDBs)
+  - topics (categories for messages can be thought of as tables in RDBs - logical grouping of messages)
   
+<br/>
+
+- ACID properties - relational DB?
+  - Atomicity: each transaction is all or nothing
+  - Consistency: reads gets latest writes
+  - Isolation: executing the transaction concurrently yields the same result as executing it in parallel
+  - Durability: once a transaction is committed, it will remain so
+
+<br/>
+
+- Zoo-keeper main job in Kafka?
+
+a coordinator for message brokers, that maintains offset, manage access control and track partitions
+<p align="center">
+  <img src="images/zookeepr.png">
+  <br/>
+</p>
+
+<br/>
+
+- To locate a specific message Kafka needs?
+  - topic
+  - partition
+  - offset number
+
+<br/>
+
+- How does a producer in Kafka controls which partition a message is placed in?
+
+It sends a key with message, otherwise round-robin is applied to handle distribution
+
+<br/>
+
+- Can consumers in Kafka read messages from any offset they choose?
+
+Yes. [Dumb broker/smart consumer](https://medium.com/@vsingla160/kafka-vs-rabbitmq-a50933fec419)
+
+<br/>
+
+- How does Kafka handle a single point of failure in partitions?
+Leader/Follower, each partition has one or more kafka broker acting as a leader
+
+<br/>
+
+- What property should a broker in Kafka poses to be allowed as a leader?
+ISR(in sync replica); a broker that has the latest data
+
+<br/>
+
+- Techniques to scale a relational DB?
+  - Leader-Follower replicas
+  - Leader-Leader replicas
+  - Federation: functional partitioning - splits DBs based on function
+  - Sharding: splits data across different DBs
+  - Denormlization: the process of replicating data to avoid expensive joins
+  - SQL tuning: benchmarking and profiling to identify bottlenecks
+
+<br/>
+
+- How can benchmarking and profiling help you to scale DB?
+  - Tighten the schema (usage of static types instead of dynamic e.g. CHAR instead of VARCHAR)
+  - Better indexing
+  - Avoid expensive joins
+  - Partition tables
+
+<br/>
+
+- Types of NoSQL DBs?
+  - key-value store
+  - document store
+  - wide column store
+  - graph store
+
+<br/>
+
+- Properties of NoSQL DBs BASE?
+  - Basically available
+  - Soft state: the state of the system may change over time
+  - Eventual consistency
+
+<br/>
+
+- STW GC?
+
+Stop the world GC(garbage collector) happens when a region of memory is full and GC pause trying to reclaim it
+
+<br/>
+
+- In what order are key-value store?
+
+Alphabetic order - lexicographic
+
+<br/>
+
+- DDL and DML stands for?
+  - data definition language - create statement
+  - data manipulation language - update statement
+
+<br/>
+
+- Document store?
+
+A store centered around documents, provides an API designed to work with occasionally changing data. e.g. mongoDB & dynamoDB
+
+<br/>
+
+- Examples on key-value stores?
+  - Redis
+  - Memcache
+
+<br/>
+
+- Wide column store?
+A nested map of data that's highly available and scalable. e.g. Cassandra & BigTable
+
+<p align="center">
+  <img src="images/wide-column.png">
+  <br/>
+</p>
+
+<br/>
+
+- Graph DB?
+
+A store represented by nodes and edges where nodes are records and edges are the relationship between them. e.g. Neo4j
+
+<p align="center">
+  <img src="images/graph.png">
+  <br/>
+</p>
+
+<br/>
+
+- Zombie controller in Kafka and split brain issue?
+
+A zombie controller is a node that has been deemed out of service and then came back alive. This might cause two nodes marked as controllers which is known as split brain.
+
+<br/>
+
+- How does Kafka address the split brain issue?
+
+By using generation clock, an epoch number that represents current controller uptime
+
+<br/>
+
+- Producer options in Kafka for write responses?
+  - Async: no response required
+  - Committed to leader
+  - Quorum
+
+<br/>
+
+- Consumer options to read a message from Kafka?
+  - Exactly once
+  - At least once
+  - At most once
+
+<br/>
+
+- Does Kafka write messages on RAM?
+
+no, all kafka messages are kept on disk
+
+<br/>
+
+- What type of DB to prefer when you are dealing with a semi-structured dataset?
+
+NoSQL DBs
+
+<br/>
+
+- What does Redis offer aside from in-memory key-value store?
+  - Persistence option
+  - Support for more complicated data structures like lists and sets
+
+<br/>
+
+- Retention policy in Kafka?
+
+Unless explicitly stated; the record is kept till the system is out of storage
+
+<br/>
+
+- How does Kafka ensures durability?
+  - replicas (leader/follower)
+  - messages are stored on disk
+
+<br/>
+
+- How does kafka manages throughput?
+
+By using consumer groups where consumers can be parallelized
+
+<br/>
+
+- DB query caching approach?
+
+Hash the query and use it as a key for your result
+
+<br/>
+
+- Query caching disadvantages?
+  - Hard to delete cached results with complex queries
+  - If table structure is changed; you need to delete your cache
+
+<br/>
+
+- Object cache examples?
+  - User session
+  - Rendered web pages
+  - Activity stream
+  - User graph data
+
+<br/>
+
+- Cache update strategies?
+  - cache a side (memcache)
+  - write through
+  - write behind
+  - refresh through
+
+<br/>
+
+- Disadvantages of cache?
+  - Need to maintain consistency between source and cache
+  - Need to make application changes
+
+<br/>
+
+- While configuring a dashboard what things you should focus on?
+  - Logging: errors rate and debugging purposes
+  - Metrics: application (CPU usage, network traffic, threads threshold) and business metrics(checkout and loyalty rate)
+  - Traces: performance and delays
+
+<br/>
+
+- EKS?
+
+Elastic Kubernetes services, a managed container service to run and scale kubernetes instances
+
+<br/>
+
+- In JMX a monitoring is done by?
+
+Querying data from managed beans to monitor performance
+
+<br/>
+
+- Page cache?
+
+Transparent cache for the pages originating from secondary storage (OS keeps them in unused part of RAM)
+
+<br/>
+
+- Zero copies?
+
+A computer operation in which CPU doesn't perform unnecessary copying of data
+
+<br/>
+
+- Examples on message queues?
+  - Redis
+  - Rabbit MQ
+  - SQS
+  - Kafka
+
+<br/>
+
+- Give an example of a well known issue with msg queues and how to solve it?
+
+Back pressure, when a queue starts to grow significantly resulting cache misses and slow performance. Solved by [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff)
+
+<br/>
+
+- HTTP methods?
+  - GET (read a resource)
+  - POST (creates a resource)
+  - PUT (creates or replace a resource)
+  - DELETE (delete a resource)
+  - PATCH (partially update a resource)
+
+<br/>
+
+- An HTTP method is idempotent if?
+
+An identical request can be made once or several times in a row with the same effect while leaving the server in the same state
+
+<br/>
+
+- Communication protocols and mechanisms in a distributed system?
+  - RPC (remote procedure call)
+  - REST (representational state transfer)
+
+<br/> 
+
+- What's RPC?
+
+A communication protocol in which a client causes a procedure to execute on a different service as if it were local
+e.g. protobuf, avro etc...
+<p align="center">
+  <img src="images/rpc.png">
+  <br/>
+</p>
+
+[source](https://tianpan.co/notes/2016-02-13-crack-the-system-design-interview)
+
+<br/>
+
+- Advantages and disadvantages of RCP?
+  - improved performance (everything encoded as binary over http2 unlike string in 1.1)
+  - language agnostic e.g. protobuf
+  - client becomes tightly coupled with the server implementation
+  - hard to debug
+
+<br/>
+
+- All communication in REST must be?
+
+cacheable and stateless
+
+<br/>
+
+- Qualities of a REST api?
+  - self descriptive
+  - fully accessible by a browser
+  - identify resources -uses the same URI regardless of the operation-
+
+<br/>
+
+- Disadvantages of REST?
+  - hard to manage when modification happens
+  - multiple trips for hierarchical data
+
+<br/>
+
+- Patch, event driven and request|response systems?
+  - request|response: synchronous system where a client sends a request and a server reply by a response
+  - patch: asynchronous system where packets are delivered regardless of you requesting it or not
+  - event-driven: asynchronous system where a worker will wait for an event to be published to take an action
+
+<br/>
+
+- SOLID principles?
+  - single responsibility
+  - open-closed
+  - liskov substitution
+  - interface segregation
+  - dependency inversion
+
+<br/>
+
+- Tools to capture heap-dump and thread-dump in java?
+  - JConsole
+  - JMeter
+
+<br/>
+
+- Closures?
+
+A technique to implement first class functions; a functional call where you pass a function to another
+
+<br/>
+
+- Types of application deployment?
+  - Blue-green deployment: you have 2 instances of your application where the green is live and the blue instance is the new setup you want to switch to
+  - Canary deployment: used to release features in patches
+  - Atomic deployment: using a single instance to perform deployment then change directories when an instance is done
+  - Shadow deployment: a shadow deployment strategy is one where the new version is available alongside the old version in prediction, but a copy or forked version of traffic to the older version is sent to the new version for production testing
+  - A/B testing deployment: strategy relies on real-world statistical data to decide on a rollout or rollback.
+
+<p align="center">
+  <img src="images/shadow-dep.png">
+  <br/>
+</p>
+
+<p align="center">
+  <img src="images/a-b-test.png">
+  <br/>
+</p>
+
+[source](https://www.opsmx.com/blog/advanced-deployment-strategies-devops-methodology/)
+
+<br/>
+
+- Map reduce?
+
+A model to process vast amount of data (multi-terabytes) in parallel on large clusters e.g. hadoop
+
+<p align="center">
+  <img src="images/map-reduce.png">
+  <br/>
+</p>
+
+[source](https://www.talend.com/resources/what-is-mapreduce/)
+
+- Schema registry in Kafka?
+
+Handles schema distribution between consumer and producer
+
+<p align="center">
+  <img src="images/schema-reg.png">
+  <br/>
+</p>
+
+<br/>
+
+- Differences between a process and a thread?
+  - process: an executing instance that provide everything to execute a program (address space, open handle to files and environment variables)
+  - thread: is a subset of a process that executes task independently (the smallest execution unit)
+  
+<br/>
+
+- Forking Vs. threading?
+  - forking: creates
