@@ -4,7 +4,7 @@ A set of examples on system design problems & most common SD questions.
 ## Table of Contents
 * [Prerequisite](#Prerequisite)
 * [Examples](#Examples)
-* [System Design Cheatsheets](#-System-Design-Cheatsheets)
+* [System Design Cheatsheets](#System-Design-Cheatsheets)
 
 ## Prerequisite
 Knowledge in large-scale & distributed systems components.
