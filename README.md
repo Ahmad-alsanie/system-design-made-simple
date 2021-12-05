@@ -4,7 +4,7 @@ A set of examples on system design problems & most common SD questions.
 ## Table of Contents
 * [Prerequisite](#Prerequisite)
 * [Examples](#Examples)
-* [Refreshers & System Design Questions](#Refreshers-&-System-Design-Questions)
+* [System Design Cheatsheets](#System Design Cheatsheets)
 
 ## Prerequisite
 Knowledge in large-scale & distributed systems components.
@@ -28,7 +28,7 @@ LB, reverse-proxies, relational-BDs, non-relational-DBS_)
 - [google Docs](./problems/GOOGLE-DOCS.md)
 - [Netflix](./problems/NETFLIX.md)
 
-## Refreshers & System Design Questions
+## System Design Cheatsheets
 <br/>
 
 - Distributed system?
@@ -1130,4 +1130,160 @@ Handles schema distribution between consumer and producer
 <br/>
 
 - Forking Vs. threading?
-  - forking: creates
+  - forking: creates a new process that copies old process and can run another part of the program
+  - threading: uses multiple threads to execute different parts of the program
+
+<br/>
+
+- Reactive programming principles?
+  - Asynchronous
+  - None-blocking
+  - Functional support
+  - Backpressure
+
+<br/>
+
+- Concurrency common problems?
+  - Race condition: when 2 threads access the same data and try to change it where the result becomes dependent on who gets the resource first
+  - Starvation: when a thread cannot access a certain resource as a result of another thread acquiring it
+  - Dead-locks: where 2 or more threads are blocked waiting for each other
+
+<br/>
+
+- Ways to prevent concurrency issues?
+  - locking
+  - freeing up resources
+  - async blocks
+
+<br/>
+
+- Service mesh?
+
+A communication infrastructure for services to communicate (consumer, provider and orchestrator: provides rules for proxies on how to behave)
+
+<br/>
+
+- Database per service patter - Saga?
+
+A sequence of local where if one fails saga executes a rollback to prevent impact
+
+<br/>
+
+- APIs?
+
+Contacts to exchange data
+
+<br/>
+
+- How to make sure your distributed cache stays consistent?
+  - Use a central cache system e.g. redis
+  - Add a well-defined TTL
+  - Use resource version keeper
+
+<br/>
+
+- When integrating a third party API what design pattern that first comes to your mind?
+
+Circuit breaker pattern
+
+<br/>
+
+- In Cassandra, you model your data for____?
+
+Reads, design around queries rather than writing your queries around your data model
+
+<br/>
+- GRPC?
+
+Language Agnostic API based on RPC, uses proto buffers which facilitate http2(data as binary)
+
+<br/>
+
+- Example.proto
+
+```
+syntax = "proto3";
+
+message Ping{
+String name=1;
+}
+
+message PingRequest{
+Ping ping = 1;
+}
+
+message PingResponse{
+String result=1;
+}
+
+service PingService{
+rpc ping(PingRequest){
+return PingResponse;
+}
+}
+```
+
+<br/>
+
+- Differences between protobuf and json?
+  - json encoded as a string
+  - protobuf encoded as binary
+
+<br/>
+
+- Blob storage?
+
+A binary storage e.g. S3
+
+<br/>
+
+- L1 Vs. L2 caching?
+  - L1: smaller memory capacity, faster access and no need to refresh (SRAM)
+  - L2: accessed after L1 is searched, slower, need to be refreshed (DRAM)
+
+<br/> 
+
+- Inheritance Vs. Composition?
+  - Inheritance: designing around what the objects are
+  - Composition: designing around actions
+
+<br/>
+
+- Mechanisms to free up (evict) cache?
+  - LRU (least recently used)
+  - LFU (least frequently used)
+
+<br/>
+
+- How to calculate TTL?
+  - Historical data
+  - Use cases
+  - Monitor hit, miss and stale data ratio
+
+<br/>
+
+- Kafka APIs?
+  - Admin api
+  - Producer api
+  - Consumer api
+  - Kafka streams api
+  - Connect api
+
+<br/>
+
+- Circuit-breaker pattern?
+  - detect something is wrong
+  - take temporary steps to avoid worsening the situation
+  - deactivate problematic component
+
+<br/>
+
+- Circuit-breaker parameters?
+  - number of retries
+  - threshold(how many failures before breaking the circuit)
+  - timeout
+  - how long to wait for to trigger a retry
+
+
+<br/>
+- Java concurrency synchronizers?
