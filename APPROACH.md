@@ -71,7 +71,7 @@ You can navigate back to your requirements summary to draw a better picture of y
 **Request Example:**
 ````
 postATweet(user-id, location, data, timestamp...);
-generateUserPreferences(user-id, metadata, name-space, type, timestamp...);
+generateUserPreferences(user-id, metadata, type, timestamp...);
 readNewsFeed(user-id, keyword, type, timestamp...);
 markFavorite(user-id, post-id, timestamp...);
 searchAvailability(api-key, keyword, city, lat_long, radius, start_datetime, end_datetime, sorting_order...)

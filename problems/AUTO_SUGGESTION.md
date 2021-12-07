@@ -57,7 +57,7 @@ The required storage in monthly bases would 250Billion * 10 bytes = 2.5 TB.
 If we apply 70% capacity model where we shouldn't use more than 70% of our storage limit then we would need almost ~ 3 TB/month.
 
 ## System interface definition
-searchQuery(sequenceOfChars, userId, location, type, namespace)
+searchQuery(sequenceOfChars, userId, location, type)
 
 ## Defining data model
 - Permanent file storage to store our trie for top suggestions e.g. S3
