@@ -113,4 +113,22 @@ reserveTickets(api_key, userId, List<Tickets>, eventId)
   <br/>
 </p>
 
+## Deep dive into components of our main features in our main service (Booking Management)
+- Implement a queue in DB to track holding list
+- Implement Long polling to share with the user when their seat is available
+- Kafka to handle our long polling for consumers and trigger real time events
+
 ## Identify bottlenecks & Scale
+Criticize your system
+- Build a dashboard to collect application metrics
+- Enable tracing to identify performance bottlenecks
+- Logging for error rates and debugging
+
+As we dive in into the data we collected above, we can see some performance issue related to:
+- slow reads -> (cache to serve events views and handle user sessions and CDN to handle static resources)
+- slow response(confirmation) upon writes -> (partitioning of our db & asynchronous writes to our queue)
+- one point of failure -> replicas and multiple webservers to serve application layer with LBs & proxies to coordinate traffic
+
+
+## User impact 
+Finally, it's a good thing to bring up a customer first type of thinking by sharing how you can improve customer experience, customer loyalty rate and add metrics to measure business impact.
