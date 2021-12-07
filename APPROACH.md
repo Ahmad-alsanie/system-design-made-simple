@@ -107,10 +107,10 @@ json:
 
 ## Defining data model
 - Storage type: SQL vs NoSQL
-- Database Design
+- Database Design & relationships
 
 <p align="center">
-  <img src="images/bytes.png">
+  <img src="images/data-model.jpg">
   <br/>
 </p>
 
@@ -118,7 +118,7 @@ json:
 A rule of thumb when it comes to high level design is to draw 5 to 6 block and don't get stressed about it as you will scale horizontally across the way.
 
 <p align="center">
-  <img src="images/bytes.png">
+  <img src="images/high-level-design.png">
   <br/>
 </p>
 
