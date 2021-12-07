@@ -1,4 +1,4 @@
-# Events
+# Events Booker
 A website that enables you to book a ticket to your favorite event
 
 ## Description
@@ -80,7 +80,7 @@ reserveTickets(api_key, userId, List<Tickets>, eventId)
     "Country": "USA",
     "StartTime": "14:00",
     "EndTime": "16:00",
-    "Seats": [
+    "ticket": [
       {
         "Type": "VIP",
         "Price": 99.99,
@@ -115,8 +115,9 @@ reserveTickets(api_key, userId, List<Tickets>, eventId)
 
 ## Deep dive into components of our main features in our main service (Booking Management)
 - Implement a queue in DB to track holding list
-- Implement Long polling to share with the user when their seat is available
+- Implement Long polling to share with the user when their ticket is available
 - Kafka to handle our long polling for consumers and trigger real time events
+- Kafka to handle commit logs (WAL) in case of transaction failure
 
 ## Identify bottlenecks & Scale
 Criticize your system

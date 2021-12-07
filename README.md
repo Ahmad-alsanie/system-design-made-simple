@@ -21,7 +21,7 @@ LB, reverse-proxies, relational-BDs, non-relational-DBS_)
 - [DDI](https://www.amazon.com/gp/product/1449373321/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
 ## Examples
-- [Events](./problems/EVENTS.md)
+- [Events Booker](./problems/EVENTS.md)
 - [Auto suggestion](./problems/AUTO_SUGGESTION.md)
 - [Facebook](./problems/FACEBOOK.md)
 - [Twitter](./problems/TWITTER.md)
