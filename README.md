@@ -34,7 +34,7 @@ LB, reverse-proxies, relational-BDs, non-relational-DBS_)
 ## System Design Cheatsheets
 <br/>
 
-- Distributed system?
+**Distributed system?**
 
 A system consists of multiple computers that communicate and interact with each other to achieve a certain goal
 
@@ -49,14 +49,7 @@ A system consists of multiple computers that communicate and interact with each 
 
 <br/>
 
-- Service discovery?
-
-A system that can help services find each other, and keep track of registered names, addresses and ports.
-e.g. Consul, Etcd, zoo-keeper etc...
-
-<br/>
-
-- Define UDP & give some common use cases?
+**Define UDP & give some common use cases?**
 
 User datagram protocol runs over IP and used to establish low latency & loss tolerating connections between applications.
 It speeds up transmission by enabling the transfer of data before an agreement is established with the receiving party.
@@ -67,7 +60,7 @@ It speeds up transmission by enabling the transfer of data before an agreement i
 
 <br/>
 
-- Define TCP & give some common use cases?
+**Define TCP & give some common use cases?**
 
 Transmission control protocol provides a reliable, ordered, error checked delivery of a stream of bytes.
 Connections are established before data is sent which makes it slower than UDP however data loss is intolerant.
@@ -80,7 +73,7 @@ Connections are established before data is sent which makes it slower than UDP h
 
 <br/>
 
-- Differences between UDP & TCP?
+**Differences between UDP & TCP?**
 <p align="center">
   <img src="images/tcp-vs-udp.png">
   <br/>
@@ -88,13 +81,13 @@ Connections are established before data is sent which makes it slower than UDP h
 
 <br/>
 
-- Define DNS?
+**Define DNS?**
 
 Domain name service is a hierarchical system that primarily translates names into IP addresses
 
 <br/>
 
-- Types of scaling?
+**Types of scaling?**
 
     1- Vertical scaling: adding more power/resources' interim of hardware (CPU, Disk, RAMs, SSDs etc...)
 
@@ -102,7 +95,7 @@ Domain name service is a hierarchical system that primarily translates names int
 
 <br/>
 
-- What is PACELC theorem ?
+**What is PACELC theorem ?**
 
 PACELC theorem states that if there's a partition a system can trade of between A(availability) and C(consistency).
 E(else) the trade of is between C(consistency) & L(latency)
@@ -114,14 +107,14 @@ E(else) the trade of is between C(consistency) & L(latency)
 
 <br/>
 
-- Map the following DBs to their PACELC properties ?
+**Map the following DBs to their PACELC properties ?**
   - Dynamo          ---------->         **PA | EL**
   - Mongo           ------------>       **PC | EC**
   - Bigtable        ---------->         **PA | EC**
 
 <br/>
 
-- What does data partitioning and data replication improves?
+**What does data partitioning and data replication improves?**
 
 <p align="center">
   <img src="images/partition-and-replicas.png">
@@ -130,25 +123,25 @@ E(else) the trade of is between C(consistency) & L(latency)
 
 <br/>
 
-- Data partitioning and distribution challenges? 
-  
-    1- Map specific node to what data it holds
-    2- How to distribute data when adding or deleting a node
+**Data partitioning and distribution challenges?**
+
+- Map specific node to what data it holds
+- How to distribute data when adding or deleting a node
 
 <br/>
 
-- Suggest a solution to solve data partitioning challenges?
+**Suggest a solution to solve data partitioning challenges?**
 
 Use consistent hashing
 
 <br/>
 
-- How does consistent hashing works?
+**How does consistent hashing works?**
 
 It maps data to physical nodes by using a ring and if a new node is introduced a minimal movement is required by accommodating the following rules:
-    1- Hash range is in between (1-100)
-    2- Ranges (100/number of nodes)
-    3- Tokens are distributed across the ranges and represent data
+- Hash range is in between (1-100)
+- Ranges (100/number of nodes)
+- Tokens are distributed across the ranges and represent data
 
 <p align="center">
   <img src="images/consistent-hashing.png">
@@ -157,115 +150,122 @@ It maps data to physical nodes by using a ring and if a new node is introduced a
 
 <br/>
 
-- What's a hotspot in DB partitioning?
+**What's a hotspot in DB partitioning?**
 
 A server that's responsible for a huge partition of data that became a bottleneck after being hit with many requests
 
 <br/>
 
-- How does consistent hashing handles node addition ?
+**How does consistent hashing handles node addition ?**
 
 Make use of VNodes, virtual node that represents subrange in each physical node
 
-- What are the properties of virtual nodes?
+**What are the properties of virtual nodes?**
   - Assigned randomly so no two neighboring VNodes are assigned to the same physical node
   - Carry replicas for fault tolerance
   - Some servers might hold more VNodes than others
 
 <br/>
 
-- What's the problem of using round-robin to control LB lookups?
+**What's the problem of using round-robin to control LB lookups?**
   - Servers may crash due to power users assigned to the same server
   - Cashing might also overload certain servers due to IP lookups for previous users
 
 <br/>
 
-- Problems that might be caused by LBs?
+**Problems that might be caused by LBs?**
 
 Session get lost
 
 <br/>
 
-- How to solve a session problem caused by LBs heuristic distribution of traffic ?
+**How to solve a session problem caused by LBs heuristic distribution of traffic ?**
 
 Use sticky sessions
 
 <br/>
 
-- Advantages of a VNode ?
-  - Speedup re-balancing process
-  - Improves availability by the usage of replicas
-  - Decrease the possibility of having hotspots
+**Advantages of a VNode ?**
+- Speedup re-balancing process
+- Improves availability by the usage of replicas
+- Decrease the possibility of having hotspots
 
 <br/>
 
-- What does RF (replication factor) represents in consistent hashing?
+**What does RF (replication factor) represents in consistent hashing?**
 
 Number of data copies
 
 <br/>
 
-- Examples on DBs that uses consistent hashing?
+**Examples on DBs that uses consistent hashing?**
   - Dynamo
   - Cassandra
 
 <br/>
 
-- Define AJAX polling?
+**Define AJAX polling?**
 
 A technique used by majority of AJAX apps where a client repeatedly polls (requests) a server and wait for a response; if the data is not available yet, the server sends an empty response
 
 <br/>
 
-- Disadvantages of AJAX polling?
+**Disadvantages of AJAX polling?**
 
 Creates HTTP overhead because of the rate of multi empty responses
 
 <br/>
 
-- What's long polling (hanging GET)?
+**What's long polling (hanging GET)?**
 
 Uses the same technique as AJAX polling with the exception of server not responding in case of data not being available
 
 <br/>
 
-- In memory cache examples & characteristics?
+**In memory cache examples & characteristics?**
 
 Is a key/value store that lies on top of RAM (e.g. Memcache, Redis etc...)
 
 <br/>
 
-- When to use cache?
+**When to use cache?**
 
 For read heavy duties
 
 <br/>
 
-- LB states ?
+**LB states ?**
     - Active
     - Inactive
 
 <br/>
 
-- Define full-duplex communication?
+**Define full-duplex communication?**
 
 A system that allows communications in both directions simultaneously e.g. telephone
 
 <br/>
 
-- What does websockets provide?
+**What does websockets provide?**
 
 Provides full-duplex communication over a single TCP connection
 
 <br/>
 
-- The purpose of SSE (server-sent events)?
+**The purpose of SSE (server-sent events)?**
 
 Under SSE clients can establish long term connection with a server where the server uses that to send data when it becomes available
 
 <br/>
 
-- The process of storing data files with id for easy access is called______?
+**Service discovery?**
+
+A system that can help services find each other, and keep track of registered names, addresses and ports.
+e.g. Consul, Etcd, zoo-keeper etc...
+
+<br/>
+
+**The process of storing data files with id for easy access is called______?**
 
 Indexing
 

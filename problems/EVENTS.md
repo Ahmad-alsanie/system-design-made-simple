@@ -11,7 +11,7 @@ Our system will enable users to purchase a ticket for a live event anytime, anyw
 - The user should be able to choose a show at a particular event
 - The service should be able to show the user the entrance arrangement and the user should be able to select multiple entrance tickets according to their preference (economy, regular, VIP).
 - The user should be able to distinguish available tickets from booked ones
-- Users should be able to put a tag on the ticket for 10 minutes before they make a payment to finalize the booking
+- Users should be able to put a tag on the ticket for 1 hour before they make a payment to finalize the booking (in cart)
 - The user should be able to wait if there is a chance that the ticket might become available(when tagged by other users expire)
 - Waiting customers should be serviced in a fair, first come, first served manner
 
