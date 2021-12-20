@@ -40,7 +40,7 @@ A system consists of multiple computers that communicate and interact with each 
 
 <br/>
 
-- Advantages of distributed computing?
+**Advantages of distributed computing?**
   - Zero latency
   - Infinite bandwidth
   - Secure network
