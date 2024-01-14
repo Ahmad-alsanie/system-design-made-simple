@@ -1293,3 +1293,18 @@ A binary storage e.g. S3
 <br/>
 
 **Java concurrency synchronizers?**
+
+**Design patterns**
+Creational: singleton, factory and builder
+Structural: Adapter, Bridge, Composite and Decorator
+
+- Singleton: ensures that only one instance of the class exists in the Java Virtual Machine.
+- Factory: used when we have a superclass with multiple subclasses and based on input, we need to return one of the subclasses.
+- Builder: solves the issue with a large number of optional parameters and inconsistent state by providing a way to build the object step-by-step and provide a method that will actually return the final Object.
+- Adapter: use an existing class that doesn't fit into my hierarchy third-party library e.g. asList method in Arrays class to allow arrays and lists to work interchangeably with each other
+- Bridge: simplifies complex hierarchy and make it easier to add new functionality: e.g shapes and redSquare and color shape interface (loose coupling and more flexibility)
+- Composite: when you want to treat a single object and a group of objects in the same way, when you have code that very similar or identical to handle different types of objects e.g. different Employees with different pay methods to implement a common interface payee and pass down one method only to pay expenses instead of three
+- Decorator: add extra decoration functionality to an object dynamically and when you need more flexibility than subclassing allows e.g I have circle class that implements component and I printed three circles but what if I only need one of them to be with red border solution: create a decorator class that has a field for decorated component takes a component in the constructor and make your init of a new circle point to ColoredComponent(circle)
+- Facade: hiding the complexity of implementation of different components e.g. hotel, flight and car booking classes that can all be joined in a vacation facade class that handles all the booking and promotes loose coupling
+- Proxy: a substitute for a real object e.g. bank card instead of real money. image loader that only calls the expensive methods e.g. load image from desk when needed (lazy loading)
+  Common uses of a proxy patterns includes: representing expensive database operations, authenticating access and representing large objects in GUI
