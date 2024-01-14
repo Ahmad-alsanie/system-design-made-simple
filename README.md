@@ -23,13 +23,8 @@ LB, reverse-proxies, relational-BDs, non-relational-DBS_)
 ## Examples
 - [Events Booker](./problems/EVENTS.md)
 - [Auto suggestion](./problems/AUTO_SUGGESTION.md)
-- [Facebook](./problems/FACEBOOK.md)
-- [Twitter](./problems/TWITTER.md)
 - [online code sharing platform](./problems/CODE-SHARE.md)
-- [Instagram](./problems/INSTAGRAM.md)
-- [Trip Advisor](./problems/TRIP-ADVISOR.md)
 - [google Docs](./problems/GOOGLE-DOCS.md)
-- [Netflix](./problems/NETFLIX.md)
 
 ## System Design Cheatsheets
 <br/>
