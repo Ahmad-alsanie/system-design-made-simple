@@ -1,5 +1,5 @@
 # system Design Made Simple
-A guide in how to approach system design interviews with real world problems, solution and a cheatsheet.
+A guide on how to approach system design interviews with real world problems, solution and a cheatsheet.
 
 ## Table of Contents
 * [Prerequisite](#Prerequisite)
