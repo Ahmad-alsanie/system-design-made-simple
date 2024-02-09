@@ -166,6 +166,13 @@ Scale your system after identifying bottlenecks
 ## Be aware of your customers
 Talk numbers and business metrics to showcase how you put your users first. Be data driven!
 
+## Contributing
+
+Contributions are welcome! If you have improvements or additions, please submit a pull request or open an issue.
+
+-------------------------------------------------------------
+Happy coding!
+
 --------------------------------------------------
 ``You have reached the end``
 
