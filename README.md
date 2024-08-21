@@ -169,11 +169,3 @@ Talk numbers and business metrics to showcase how you put your users first. Be d
 ## Contributing
 
 Contributions are welcome! If you have improvements or additions, please submit a pull request or open an issue.
-
--------------------------------------------------------------
-Happy coding!
-
---------------------------------------------------
-``You have reached the end``
-
-**Good luck!**
